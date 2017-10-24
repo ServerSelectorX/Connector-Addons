@@ -57,13 +57,15 @@ depends: [Vault] #If your addon doesn't depend on anything you can leave this ou
 ```
 ## Compiling
 1. Save your work
-2. Navigate to your project folder in file explorer
-3. In the `bin` directory, you should find the files `code.class` and `info.yml`
-4. Copy both files into a new folder. Optionally add a source file.
-5. If your folder now looks like <a href="https://github.com/ServerSelectorX/Connector-Addons/tree/master/PlayerCount">this</a> you are done!
-6. Submit a pull request to this repo so your addon is listed here.
+2. At the top, go to `Project` and click `Clean...`
+3. Make sure that your project is selected (or all projects selected), then click `Clean`.
+4. Right click project > `Show In` > `System Explorer` then open the selected directory
+5. In the `bin` directory, you should find the files `code.class` and `info.yml`
+6. Copy both files into a new folder. Optionally add a source file.
+7. If your folder now looks like <a href="https://github.com/ServerSelectorX/Connector-Addons/tree/master/PlayerCount">this</a> you are done!
+8. Submit a pull request to this repo so your addon is listed here.
 ## Good to know
 - If you use any methods that are only available in certain versions of Bukkit, please explain in the description of your addon
 - You can use APIs from other plugins, just make sure that you put that plugin as a dependency in your info.yml and as a soft dependency in <a href="https://github.com/ServerSelectorX/ServerSelectorX/blob/master/src/plugin.yml">SSX plugin.yml</a>
-- If you need to do something when your addon is loaded, you can override the method onLoad(). The config is loaded before onLoad() is called.
-- You can add any listener you want to the class, they are registered automatically. AddonClass already implements Listener.
+- If you need to do something when your addon is loaded, you can override the method `onLoad()`. The config is loaded before `onLoad()` is called.
+- You can add any listener you want to the class, they are registered automatically. `AddonClass` already implements `Listener`.
