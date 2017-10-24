@@ -3,7 +3,7 @@ import java.util.Map;
 
 import org.bukkit.Bukkit;
 
-import xyz.derkades.serverselectorx.connector.AddonClass;
+import xyz.derkades.SSX_Connector.AddonClass;
 
 public class code implements AddonClass {
 
