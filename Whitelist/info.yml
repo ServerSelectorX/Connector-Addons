@@ -1,0 +1,5 @@
+name: Whitelist
+description: 'Adds {whitelist}, {whitelisted-players} and {whitelisted-count} placeholders'
+author: Derkades
+version: 1.0
+license: MIT
