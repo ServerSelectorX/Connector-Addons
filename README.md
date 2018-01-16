@@ -8,9 +8,13 @@ In this tutorial I use the Eclipse IDE. The steps should not be much different f
 2. Right click your project -> Build Path -> Add External Archives -> Select your SSX Connector jar file
 3. Without creating a package, create a new class called "code" **lower case** (I know this goes against conventions)
 4. Let this class implement `AddonClass`
-5. Insert the required methods
+5. If you need a config, create a new file called config.yml. In this example it will look like this:
+```
+on: 'This is displayed when on'
+off: 'This is displayed when off'
+```
+5. Insert the required method getPlaceholders()
 
-## getPlaceholders()
 This is where you add your custom placeholders. First create a new hashmap, then add your placeholders to the hashmap like this:
 ```
 // Adds placeholder {players} which is replaced with the number of online players
@@ -18,33 +22,33 @@ Map<String, String> map = new HashMap<>();
 map.put("players", String.valueOf(Bukkit.getOnlinePlayers()));
 return map;
 ```
-## getConfigDefaults()
-This is where you create a config if you need one. If you return null, no config will be generated.
-```
-@Override
-public Map<String, String> getPlaceholders() {
-  Map<String, String> placeholders = new HashMap<>();
-  if (true){
-    map.put("example", config.getString("on"));
-  } else {
-    map.put("example", config.getString("off"));
-  }
-  return placeholders;
-}
 
-@Override
-public Map<String, String> getConfigDefaults() {
-  Map<String, String> defaults = new HashMap<>();
-  defaults.put("on", "This is displayed when on");
-  defaults.put("off", "This is displayed when off");
-  return defaults;
+Your class should now look like this:
+```
+public class code extends AddonClass {
+
+  @Override
+  public Map<String, String> getPlaceholders() {
+    Map<String, String> placeholders = new HashMap<>();
+    if (true){
+      map.put("example", config.getString("on"));
+    } else {
+      map.put("example", config.getString("off"));
+    }
+    return placeholders;
+  }
+
 }
 ```
-Config will look like this:
+## Configuration
+If you need a config create a config.yml file in the same directory as code.class
+For this example something like this:
 ```
-on: 'This is displayed when on'
-off: 'This is displayed when off'
+# {example} will be replaced with 'custom text' or 'custom text 2'
+on: 'custom text'
+off: 'custom text 2'
 ```
+
 ## info.yml
 An example should be clear enough:
 ```
