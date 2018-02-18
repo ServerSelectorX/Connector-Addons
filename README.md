@@ -50,7 +50,7 @@ off: 'custom text 2'
 ```
 
 ## info.yml
-An example should be clear enough:
+This file should be in the same directory as code.java (and config.yml). An example should be clear enough:
 ```
 name: Total Money
 description: 'Adds the placeholder {money} which is the combined balance of all players on the server'
