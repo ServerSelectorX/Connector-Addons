@@ -31,9 +31,9 @@ public class code extends AddonClass {
   public Map<String, String> getPlaceholders() {
     Map<String, String> placeholders = new HashMap<>();
     if (true){
-      map.put("example", config.getString("on"));
+      placeholders.put("example", config.getString("on"));
     } else {
-      map.put("example", config.getString("off"));
+      placeholders.put("example", config.getString("off"));
     }
     return placeholders;
   }
