@@ -8,11 +8,6 @@ In this tutorial I use the Eclipse IDE. The steps should not be much different f
 2. Right click your project -> Build Path -> Add External Archives -> Select your SSX Connector jar file
 3. Without creating a package, create a new class called "code" **lower case** (I know this goes against conventions)
 4. Let this class implement `AddonClass`
-5. If you need a config, create a new file called config.yml. In this example it will look like this:
-```
-on: 'This is displayed when on'
-off: 'This is displayed when off'
-```
 5. Insert the required method getPlaceholders()
 
 This is where you add your custom placeholders. First create a new hashmap, then add your placeholders to the hashmap like this:
