@@ -70,6 +70,6 @@ depends: [Vault] #If your addon doesn't depend on anything you can leave this ou
 8. Submit a pull request to this repo so your addon is listed here.
 ## Good to know
 - If you use any methods that are only available in certain versions of Bukkit, please explain in the description of your addon
-- You can use APIs from other plugins, just make sure that you put that plugin as a dependency in your info.yml and as a soft dependency in <a href="https://github.com/ServerSelectorX/ServerSelectorX/blob/master/src/plugin.yml">SSX plugin.yml</a>
+- You can use APIs from other plugins, just make sure that you put that plugin as a dependency in your info.yml and as a soft dependency in <a href="https://github.com/ServerSelectorX/ServerSelectorX/blob/master/src/plugin.yml">SSX plugin.yml</a>. If you are using a public plugin please submit a pull request. Otherwise, open the jar using 7-zip and edit plugin.yml.
 - If you need to do something when your addon is loaded, you can override the method `onLoad()`. The config is loaded before `onLoad()` is called.
 - You can add any listener you want to the class, they are registered automatically. `AddonClass` already implements `Listener`.
