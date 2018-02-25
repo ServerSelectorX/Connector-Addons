@@ -1,0 +1,5 @@
+name: ServerFull
+description: 'Adds the placeholder {full} which changes depending on whether the server is full'
+author: Derkades
+version: 1.0.0
+license: MIT
