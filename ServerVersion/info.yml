@@ -1,0 +1,5 @@
+name: ServerVersion
+description: 'Adds the placeholders {version} and {bukkitVersion}'
+author: Derkades
+version: 1.0.0
+license: MIT
