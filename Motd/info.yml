@@ -1,0 +1,5 @@
+name: Motd
+description: 'Adds the placeholder {motd}'
+author: Derkades
+version: 1.0.0
+license: MIT
