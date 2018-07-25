@@ -53,7 +53,7 @@ description: 'Adds the placeholder {money} which is the combined balance of all 
 author: Derkades
 version: 1.0.2
 license: MIT
-depends: [Vault] #If your addon doesn't depend on anything you can leave this out
+depends: [Vault] #If your addon depends on another plugin. See note 2 at the bottom of this file.
 ```
 ## Compiling
 1. Save your work
