@@ -8,7 +8,7 @@ In this tutorial I use the Eclipse IDE. The steps should not be much different f
 2. Right click your project -> Build Path -> Add External Archives -> Select your SSX Connector jar file
 3. Now repeat for spigot/bukkit
 4. Without creating a package, create a new class called "code" **lower case** (I know this goes against conventions)
-5. Let this class implement `AddonClass`
+5. Let this class extend `AddonClass`
 6. Insert the required method getPlaceholders()
 
 This is where you add your custom placeholders. First create a new hashmap, then add your placeholders to the hashmap like this:
@@ -53,7 +53,7 @@ description: 'Adds the placeholder {money} which is the combined balance of all 
 author: Derkades
 version: 1.0.2
 license: MIT
-depends: [Vault] #If your addon doesn't depend on anything you can leave this out
+depends: [Vault] #If your addon depends on another plugin. See note 2 at the bottom of this file.
 ```
 ## Compiling
 1. Save your work
