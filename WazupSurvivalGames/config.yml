@@ -1,0 +1,11 @@
+states:
+  no-arena-selected: "waiting"
+  error: "error"
+  waiting: "waiting"
+  starting: "starting"
+  ingame: "ingame"
+  deathmatch: "deathmatch"
+  disabled: "disabled" 
+  rollbacking: "rolling back"
+  sdeathmatch: "sdeathmatch"
+  finishing: "finishing"
