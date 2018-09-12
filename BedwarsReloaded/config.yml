@@ -1,0 +1,6 @@
+invalid: 'Error'
+no-game: 'N/A'
+stopped: 'Stopped'
+waiting-full: 'Waiting (full)'
+waiting-not-full: 'Waiting'
+running: 'Running'
