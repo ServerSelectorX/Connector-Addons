@@ -1,0 +1,13 @@
+# Change to mc1_13 for the 1.13 game manager
+game-manager: 'com.gmail.val59000mc.playuhc.mc1_8.game.GameManager'
+
+# If you get this, make sure the setting above is correct. If it is, contact me on discord (Derkades#9976)
+reflect-error: 'Reflection error'
+
+waiting: 'Waiting'
+deathmatch: 'In deathmatch'
+playing: 'Playing'
+starting: 'Starting'
+loading: 'Loading'
+ended: 'Ended'
+error: 'Error'
