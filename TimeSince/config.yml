@@ -1,0 +1,13 @@
+# 1: hours, minutes, seconds
+# 2: days, hours, minutes, seconds
+# 3: weeks, days, hours, minutes, seconds
+placeholder-type: 2
+
+format: "{days} days {hours} hours and {minutes} minutes"
+
+# Add your placeholders here with a timestamp.
+# For example, adding time-since-release: 1537618977 will add the placeholder {time-since-release}
+# It will be the time since the specified timestamp.
+# Use this website to convert time & date into a timestamp: https://www.epochconverter.com/
+placeholders:
+  "time-since-release": 1537618977
