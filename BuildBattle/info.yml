@@ -1,0 +1,5 @@
+name: BuildBattle
+description: 'Addon which adds a {bb-state} placeholder for the BuildBattle plugin by Plajer'
+author: Derkades
+version: 1.0.0
+license: MIT
