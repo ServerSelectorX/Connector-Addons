@@ -55,6 +55,7 @@ version: 1.0.2
 license: MIT
 depends: [Vault] #If your addon depends on another plugin. See note 2 at the bottom of this file.
 ```
+
 ## Compiling
 1. Save your work
 2. At the top, go to `Project` and click `Clean...`
@@ -62,10 +63,10 @@ depends: [Vault] #If your addon depends on another plugin. See note 2 at the bot
 4. Right click project > `Show In` > `System Explorer` then open the selected directory
 5. In the `bin` directory, you should find the files `code.class` and `info.yml`
 6. Copy both files into a new folder. Optionally add a source file.
-7. You're done!
+7. The directory should now contain a code.class file, info.yml file, and optionally a code.java and config.yml file.
 8. Submit a pull request to this repo so your addon is listed here.
+
 ## Good to know
 - If you use any methods that are only available in certain versions of Bukkit, please explain in the description of your addon
-- You can use APIs from other plugins, just make sure that you put that plugin as a dependency in your info.yml and as a soft dependency in <a href="https://github.com/ServerSelectorX/ServerSelectorX-Connector/blob/master/resources/plugin.yml">SSX connector plugin.yml</a>. If you are using a public plugin please submit a pull request. Otherwise, open the jar using 7-zip and edit plugin.yml.
 - If you need to do something when your addon is loaded, you can override the method `onLoad()`. The config is loaded before `onLoad()` is called.
 - You can add any listener you want to the class, they are registered automatically. `AddonClass` already implements `Listener`.
