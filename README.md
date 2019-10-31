@@ -2,42 +2,55 @@
 Repository with compiled addons for ServerSelectorX connector
 
 # How to write an addon
-In this tutorial I use the Eclipse IDE. The steps should not be much different for other IDEs.
 
-1. Create a new standard java project
-2. Right click your project -> Build Path -> Add External Archives -> Select your SSX Connector jar file
-3. Now repeat for spigot/bukkit
-4. Without creating a package, create a new class called "code" **lower case** (I know this goes against conventions)
-5. Let this class extend `AddonClass`
-6. Insert the required method getPlaceholders()
+Create a new java project in your IDE and add the spigot and SSX-Connector jar files to the classpath.
 
-This is where you add your custom placeholders. First create a new hashmap, then add your placeholders to the hashmap like this:
-```
-// Adds placeholder {players} which is replaced with the number of online players
-Map<String, String> map = new HashMap<>();
-map.put("players", String.valueOf(Bukkit.getOnlinePlayers()));
-return map;
-```
+Creating a new java file (not in a package) for the addon for example ExamplePlaceholders.java. The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
 
-Your class should now look like this:
-```
-public class code extends AddonClass {
+## Example
 
-  @Override
-  public Map<String, String> getPlaceholders() {
-    Map<String, String> placeholders = new HashMap<>();
-    if (true){
-      placeholders.put("example", config.getString("on"));
-    } else {
-      placeholders.put("example", config.getString("off"));
-    }
-    return placeholders;
-  }
+```java
+public class Example extends Addon {
+
+	@Override
+	public String getAuthor() {
+		return "Derkades";
+	}
+
+	@Override
+	public String getDescription() {
+		return "Adds {hello} and {helloPlayer} placeholders";
+	}
+
+	@Override
+	public String getLicense() {
+		return "MIT";
+	}
+
+	@Override
+	public String getName() {
+		return "Example";
+	}
+
+	@Override
+	public String getVersion() {
+		return "1.0.0";
+	}
+
+	@Override
+	public void onLoad() {
+		// Add {hello} placeholder that always returns "Hello!"
+		addPlaceholder("hello", () -> "Hello!");
+
+		// Add {helloPlayer} placeholder returns a more personal greeting
+		addPlayerPlaceholder("helloPlayer", (uuid, name) -> "Hello, " + name + "!");
+	}
 
 }
 ```
+
 ## Configuration
-If you need a config create a config.yml file in the same directory as code.class
+If you need a config create a .yml file in the same directory and with the same name as the java file, for example `ExamplePlaceholders.yml`. You'll be able to read the configuration file using the `config` variable.
 For this example something like this:
 ```
 # {example} will be replaced with 'custom text' or 'custom text 2'
@@ -45,28 +58,12 @@ on: 'custom text'
 off: 'custom text 2'
 ```
 
-## info.yml
-This file should be in the same directory as code.java (and config.yml). An example should be clear enough:
-```
-name: Total Money
-description: 'Adds the placeholder {money} which is the combined balance of all players on the server'
-author: Derkades
-version: 1.0.2
-license: MIT
-depends: [Vault] #If your addon depends on another plugin. See note 2 at the bottom of this file.
-```
-
-## Compiling
-1. Save your work
-2. At the top, go to `Project` and click `Clean...`
-3. Make sure that your project is selected (or all projects selected), then click `Clean`.
-4. Right click project > `Show In` > `System Explorer` then open the selected directory
-5. In the `bin` directory, you should find the files `code.class` and `info.yml`
-6. Copy both files into a new folder. Optionally add a source file.
-7. The directory should now contain a code.class file, info.yml file, and optionally a code.java and config.yml file.
-8. Submit a pull request to this repo so your addon is listed here.
+## Exporting
+1. Make sure is everything saved. This guide assumes that your IDE automatically compiles files when saving.
+2. In the `bin` directory, you should find a `.class` and optionally a `.yml` file. Those two files make up your addon.
+3. Drop the two files in the SSX-Connector/addons folder for testing.
+4. Submit a pull request to this repository!
 
 ## Good to know
-- If you use any methods that are only available in certain versions of Bukkit, please explain in the description of your addon
-- If you need to do something when your addon is loaded, you can override the method `onLoad()`. The config is loaded before `onLoad()` is called.
-- You can add any listener you want to the class, they are registered automatically. `AddonClass` already implements `Listener`.
+- If you use any methods that are only available in certain versions of Bukkit, please explain in the description of your addon. It is assumed that your addon is compatible from 1.7.10 to the most recent Minecraft version.
+- You can use Bukkit listeners. `Addon` already implements `Listener` and is registered when the addon is enabled.
