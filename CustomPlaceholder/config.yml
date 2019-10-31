@@ -1,4 +1,0 @@
-# Add your custom placeholders in the following format: <placeholder name>: <placeholder value>
-
-# Adds placeholder {example} which will become 'Lorem ipsum'
-example: 'Lorem ipsum'

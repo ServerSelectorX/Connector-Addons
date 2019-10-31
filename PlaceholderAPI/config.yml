@@ -1,7 +1,0 @@
-# Add unlimited placeholders here. You can't use any player-specific placeholders!
-
-# Map placeholder {uptime} to %server_uptime%
-uptime: server_uptime
-
-# Map placeholder {tps} to %server_tps%
-tps: server_tps

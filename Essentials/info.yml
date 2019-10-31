@@ -1,6 +1,0 @@
-name: Essentials
-description: 'Addon for EssentialsX. Adds {online-vanished}, {online-not-vanished}, {online-afk}, {online-not-afk}'
-author: Derkades
-version: 1.0
-license: MIT
-depends: [Essentials]
