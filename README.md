@@ -5,7 +5,7 @@ Repository with compiled addons for ServerSelectorX connector
 
 Create a new java project in your IDE and add the spigot and SSX-Connector jar files to the classpath.
 
-Creating a new java file (not in a package) for the addon for example ExamplePlaceholders.java. The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
+Create a new java file (not in a package) for the addon for example ExamplePlaceholders.java. The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
 
 ## Example
 
