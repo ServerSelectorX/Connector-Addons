@@ -10,7 +10,7 @@ Creating a new java file (not in a package) for the addon for example ExamplePla
 ## Example
 
 ```java
-public class Example extends Addon {
+public class ExamplePlaceholders extends Addon {
 
 	@Override
 	public String getAuthor() {
