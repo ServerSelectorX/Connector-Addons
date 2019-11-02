@@ -1,0 +1,7 @@
+# Choose placeholder values for when the whitelist is on or off
+whitelist-on: 'true'
+whitelist-off: 'false'
+player-whitelisted: 'true'
+player-not-whitelisted: 'false'
+player-unknown: '?'
+list-separator: ', '
