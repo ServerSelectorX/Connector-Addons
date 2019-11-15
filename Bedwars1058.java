@@ -26,11 +26,13 @@ public class Bedwars1058 extends Addon {
 
 	@Override
 	public String getVersion() {
-		return "1.0.0";
+		return "1.0.1";
 	}
 
 	@Override
 	public void onLoad() {
+		this.registerListeners();
+
 		this.state = "unknown";
 		this.addPlaceholder("bw-state", () -> this.config.getString(this.state));
 	}
