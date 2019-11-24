@@ -1,5 +1,5 @@
 # Connector-Addons
-Repository with compiled addons for ServerSelectorX connector
+Repository with compiled addons for ServerSelectorX connector version 1.3.\*. For v2 addons, go to the [v2 branch](https://github.com/ServerSelectorX/Connector-Addons/tree/v2).
 
 # How to write an addon
 In this tutorial I use the Eclipse IDE. The steps should not be much different for other IDEs.
