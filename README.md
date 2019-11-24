@@ -66,4 +66,4 @@ off: 'custom text 2'
 
 ## Good to know
 - If you use any methods that are only available in certain versions of Bukkit, please explain in the description of your addon. It is assumed that your addon is compatible from 1.7.10 to the most recent Minecraft version.
-- You can use Bukkit listeners. `Addon` already implements `Listener` and is registered when the addon is enabled.
+- You can use Bukkit listeners. `Addon` already implements `Listener`. Register the listeners by calling `registerListeners()` in `onLoad()`.
