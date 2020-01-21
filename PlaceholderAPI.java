@@ -1,3 +1,6 @@
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.ConfigurationSection;
+
 import xyz.derkades.ssx_connector.Addon;
 
 public class PlaceholderAPI extends Addon {
@@ -19,13 +22,20 @@ public class PlaceholderAPI extends Addon {
 
 	@Override
 	public String getVersion() {
-		return "1.0.0";
+		return "1.1.0";
 	}
 
 	@Override
 	public void onLoad() {
-		for (final String key : this.config.getKeys(false)) {
-			addPlaceholder(key, () -> me.clip.placeholderapi.PlaceholderAPI.setPlaceholders(null, "%" + this.config.getString(key) + "%"));
+		final ConfigurationSection global = this.config.getConfigurationSection("global");
+		final ConfigurationSection player = this.config.getConfigurationSection("player");
+
+		for (final String key : global.getKeys(false)) {
+			addPlaceholder(key, () -> me.clip.placeholderapi.PlaceholderAPI.setPlaceholders(null, "%" + global.getString(key) + "%"));
+		}
+
+		for (final String key : player.getKeys(false)) {
+			addPlayerPlaceholder(key, (uuid, name) -> me.clip.placeholderapi.PlaceholderAPI.setPlaceholders(Bukkit.getOfflinePlayer(uuid), "%" + player.getString(key) + "%"));
 		}
 	}
 

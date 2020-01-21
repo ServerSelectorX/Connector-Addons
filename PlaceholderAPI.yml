@@ -1,7 +1,13 @@
-# Add unlimited placeholders here. You can't use any player-specific placeholders!
+# Global placeholders (placeholders that show the same value for every player)
+global:
+  # Map placeholder %server_uptime% to {uptime}
+  uptime: server_uptime
 
-# Map placeholder {uptime} to %server_uptime%
-uptime: server_uptime
+  # Map placeholder %server_tps% to {tps}
+  tps: server_tps
 
-# Map placeholder {tps} to %server_tps%
-tps: server_tps
+# Player-specific placeholders (placeholders that show a different value for each player)
+# Note that you can't use placeholders where the player has to be online. 
+player:
+  # Map placeholder %player_level% to {level}
+  #rank: luckperms_prefix
