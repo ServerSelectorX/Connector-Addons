@@ -1,3 +1,5 @@
+import java.lang.management.ManagementFactory;
+
 import xyz.derkades.ssx_connector.Addon;
 
 public class TimeSince extends Addon {
@@ -19,7 +21,7 @@ public class TimeSince extends Addon {
 
 	@Override
 	public String getVersion() {
-		return "1.0.0";
+		return "1.1.0";
 	}
 
 	@Override
@@ -28,8 +30,18 @@ public class TimeSince extends Addon {
 
 		for (final String placeholderName : this.config.getConfigurationSection("placeholders").getKeys(false)) {
 			addPlaceholder(placeholderName, () -> {
-				final long timestamp = this.config.getLong("placeholders." + placeholderName);
-				long diff = System.currentTimeMillis() / 1000 - timestamp; //timestamp is in seconds
+				long diff;
+				if (this.config.isLong("placeholders." + placeholderName)) {
+					final long timestamp = this.config.getLong("placeholders." + placeholderName);
+					diff = System.currentTimeMillis() / 1000 - timestamp; //timestamp is in seconds
+				} else {
+					final String type = this.config.getString("placeholders." + placeholderName);
+					if (type.equals("uptime")) {
+						diff = (System.currentTimeMillis() - ManagementFactory.getRuntimeMXBean().getUptime()) / 1000;
+					} else {
+						return "error invalid value";
+					}
+				}
 
 				if (diff < 0) {
 					return "in the future";
