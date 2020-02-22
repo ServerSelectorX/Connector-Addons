@@ -1,6 +1,16 @@
 # Connector-Addons
 Repository with compiled addons for ServerSelectorX connector
 
+# Registering placeholders from a plugin
+If you don't want to write an addon and instead want to add placeholders directly from your plugin, you can do the following:
+```java
+// Register placeholder {hello} that always says "hello"
+PlaceholderRegistry.registerPlaceholder(Optional.empty(), "hello", () -> "hello");
+
+// Register placeholder {helloPlayer} that says "hello" with the name of the player
+PlaceholderRegistry.registerPlaceholder(Optional.empty(), "helloPlayer", (uuid, name) -> "Hello, " + name);
+```
+
 # How to write an addon
 
 Create a new java project in your IDE and add the spigot and SSX-Connector jar files to the classpath.
