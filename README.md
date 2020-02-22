@@ -5,7 +5,7 @@ Repository with compiled addons for ServerSelectorX connector
 
 Create a new java project in your IDE and add the spigot and SSX-Connector jar files to the classpath.
 
-Create a new java file (not in a package) for the addon for example ExamplePlaceholders.java. The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
+Create a new java file (not in a package) for the addon. The name of this file should be the name of your addon, for example Hello.java. The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
 
 ## Example
 
@@ -50,16 +50,15 @@ public class ExamplePlaceholders extends Addon {
 ```
 
 ## Configuration
-If you need a config create a .yml file in the same directory and with the same name as the java file, for example `ExamplePlaceholders.yml`. You'll be able to read the configuration file using the `config` variable.
+If you need a config create a .yml file in the same directory and with the same name as the java file, for example `Hello.yml`. You'll be able to read the configuration file using the global `config` variable.
 For this example something like this:
 ```
-# {example} will be replaced with 'custom text' or 'custom text 2'
-on: 'custom text'
-off: 'custom text 2'
+# {name} will be replaced with the player name
+message: 'Bonjour, {name}!'
 ```
 
 ## Exporting
-1. Make sure is everything saved. This guide assumes that your IDE automatically compiles files when saving.
+1. Make sure is everything saved and compiled. Most IDEs will automatically compile files when saved.
 2. In the `bin` directory, you should find a `.class` and optionally a `.yml` file. Those two files make up your addon.
 3. Drop the two files in the SSX-Connector/addons folder for testing.
 4. Submit a pull request to this repository!
