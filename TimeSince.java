@@ -21,7 +21,7 @@ public class TimeSince extends Addon {
 
 	@Override
 	public String getVersion() {
-		return "1.1.0";
+		return "1.1.1";
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class TimeSince extends Addon {
 		for (final String placeholderName : this.config.getConfigurationSection("placeholders").getKeys(false)) {
 			addPlaceholder(placeholderName, () -> {
 				long diff;
-				if (this.config.isLong("placeholders." + placeholderName)) {
+				if (this.config.isLong("placeholders." + placeholderName) || this.config.isInt("placeholders." + placeholderName)) {
 					final long timestamp = this.config.getLong("placeholders." + placeholderName);
 					diff = System.currentTimeMillis() / 1000 - timestamp; //timestamp is in seconds
 				} else {
@@ -39,7 +39,7 @@ public class TimeSince extends Addon {
 					if (type.equals("uptime")) {
 						diff = (System.currentTimeMillis() - ManagementFactory.getRuntimeMXBean().getUptime()) / 1000;
 					} else {
-						return "error invalid value";
+						return "error: invalid value";
 					}
 				}
 
