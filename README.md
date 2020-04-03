@@ -54,6 +54,9 @@ public class ExamplePlaceholders extends Addon {
 
 		// Add {helloPlayer} placeholder returns a more personal greeting
 		addPlayerPlaceholder("helloPlayer", (uuid, name) -> "Hello, " + name + "!");
+
+		// Use message from configuration
+		addPlayerPlaceholder("helloConfig", (uuid, name) -> config.getString("message").replace("{name}", name));
 	}
 
 }
@@ -61,8 +64,8 @@ public class ExamplePlaceholders extends Addon {
 
 ## Configuration
 If you need a config create a .yml file in the same directory and with the same name as the java file, for example `Hello.yml`. You'll be able to read the configuration file using the global `config` variable.
-For this example something like this:
-```
+For example:
+```yaml
 # {name} will be replaced with the player name
 message: 'Bonjour, {name}!'
 ```
