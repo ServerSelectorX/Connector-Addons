@@ -3,10 +3,10 @@
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 
-import plugily.projects.murdermystery.api.events.game.MMGameStateChangeEvent;
+import plugily.projects.buildbattle.api.event.game.BBGameChangeStateEvent;
 import xyz.derkades.ssx_connector.Addon;
 
-public class MurderMystery extends Addon {
+public class BuildBattle extends Addon {
 
 	private String state;
 	private String arena;
@@ -18,25 +18,25 @@ public class MurderMystery extends Addon {
 
 	@Override
 	public String getDescription() {
-		return "Addon for the minigame MurderMystery by Plugily-Projects";
+		return "Addon for the minigame BuildBattle by Plugily-Projects";
 	}
 
 	@Override
 	public String getVersion() {
-		return "1.1.0";
+		return "1.0.0";
 	}
 
 	@Override
 	public void onLoad() {
 		this.registerListeners();
 		this.state = "Unknown";
-		this.addPlaceholder("mm-state", () -> this.config.getString(this.state));
-		this.addPlaceholder("mm-arena", () -> this.arena);
+		this.addPlaceholder("bb-state", () -> this.config.getString(this.state));
+		this.addPlaceholder("bb-arena", () -> this.arena);
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR)
-	public void onStateChange(final MMGameStateChangeEvent e) {
-		this.state = e.getArenaState().getFormattedName();
+	public void onStateChange(final BBGameChangeStateEvent e) {
+		this.state = e.getState().getFormattedName();
 		this.arena = e.getArena().getMapName();
 	}
 }
