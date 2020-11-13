@@ -33,11 +33,6 @@ public class ExamplePlaceholders extends Addon {
 	}
 
 	@Override
-	public String getLicense() {
-		return "MIT";
-	}
-
-	@Override
 	public String getName() {
 		return "Example";
 	}
