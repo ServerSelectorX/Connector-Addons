@@ -31,6 +31,7 @@ public class VillageDefense extends Addon {
 		this.registerListeners();
 		this.state = "Unknown";
 		this.addPlaceholder("vd-state", () -> this.config.getString(this.state));
+		this.arena = "Unknown";
 		this.addPlaceholder("vd-arena", () -> this.arena);
 	}
 

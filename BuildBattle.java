@@ -31,6 +31,7 @@ public class BuildBattle extends Addon {
 		this.registerListeners();
 		this.state = "Unknown";
 		this.addPlaceholder("bb-state", () -> this.config.getString(this.state));
+		this.arena = "Unknown";
 		this.addPlaceholder("bb-arena", () -> this.arena);
 	}
 

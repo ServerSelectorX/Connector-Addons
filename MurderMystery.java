@@ -31,6 +31,7 @@ public class MurderMystery extends Addon {
 		this.registerListeners();
 		this.state = "Unknown";
 		this.addPlaceholder("mm-state", () -> this.config.getString(this.state));
+		this.arena = "Unknown";
 		this.addPlaceholder("mm-arena", () -> this.arena);
 	}
 
@@ -39,4 +40,5 @@ public class MurderMystery extends Addon {
 		this.state = e.getArenaState().getFormattedName();
 		this.arena = e.getArena().getMapName();
 	}
+
 }
