@@ -5,3 +5,6 @@ player-whitelisted: 'true'
 player-not-whitelisted: 'false'
 player-unknown: '?'
 list-separator: ', '
+# Show player-whitelisted = true when whitelist is off (so the player is not on the whitelist, but can join)
+# If disabled, always show whether the player is actually on the whitelist
+player-whitelist-when-whitelist-off: true
