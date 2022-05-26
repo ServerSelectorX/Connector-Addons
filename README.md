@@ -16,9 +16,9 @@ PlaceholderRegistry.registerPlaceholder(Optional.empty(), "helloPlayer", (uuid, 
 
 ## How to write an addon
 
-Create a new java project in your IDE and add the spigot and SSX-Connector jar files to the classpath.
+Create a new text file ending in `.java`. Write your addon in this file. Place an SSX-Connector jar file and spigot jar file in the same directory. Compile by running `javac -cp '*:.' *.java`. This will produce a `.class` file which can be loaded by SSX-Connector.
 
-Create a new java file (not in a package) for the addon. The name of this file should be the name of your addon, for example Hello.java. The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
+The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
 
 ### Example
 
@@ -69,13 +69,6 @@ For example:
 # {name} will be replaced with the player name
 message: 'Bonjour, {name}!'
 ```
-
-### Exporting
-
-1. Make sure is everything saved and compiled. Most IDEs will automatically compile files when saved.
-2. In the `bin` directory, you should find a `.class` and optionally a `.yml` file. Those two files make up your addon.
-3. Drop the two files in the SSX-Connector/addons folder for testing.
-4. Submit a pull request to this repository!
 
 ### Good to know
 
