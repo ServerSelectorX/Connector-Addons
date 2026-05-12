@@ -4,7 +4,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 
 import plugily.projects.buildbattle.api.event.game.BBGameChangeStateEvent;
-import xyz.derkades.ssx_connector.Addon;
+import nl.rslot.ssx.connector.Addon;
 
 public class BuildBattle extends Addon {
 

@@ -1,6 +1,6 @@
 import java.lang.management.ManagementFactory;
 
-import xyz.derkades.ssx_connector.Addon;
+import nl.rslot.ssx.connector.Addon;
 
 public class TimeSince extends Addon {
 
@@ -12,11 +12,6 @@ public class TimeSince extends Addon {
 	@Override
 	public String getDescription() {
 		return "Add placeholders which count the time after a specific date";
-	}
-
-	@Override
-	public String getLicense() {
-		return "MIT";
 	}
 
 	@Override
