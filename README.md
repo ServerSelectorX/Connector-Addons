@@ -7,22 +7,26 @@ Repository with compiled addons for ServerSelectorX connector
 If you don't want to write an addon and instead want to add placeholders directly from your plugin, you can do the following:
 
 ```java
-// Register placeholder {hello} that always says "hello"
+// Register global placeholder {hello} that always says "hello" for all players
 PlaceholderRegistry.registerPlaceholder(Optional.empty(), "hello", () -> "hello");
 
-// Register placeholder {helloPlayer} that says "hello" with the name of the player
-PlaceholderRegistry.registerPlaceholder(Optional.empty(), "helloPlayer", (uuid, name) -> "Hello, " + name);
+// Register player-specific placeholder, that can return a value specific for each player.
+PlaceholderRegistry.registerPlaceholder(Optional.empty(), "helloPlayer", uuid -> "Hello, your UUID is: " + uuid);
 ```
 
 ## How to write an addon
 
 Create a new text file ending in `.java`. Write your addon in this file. Place an SSX-Connector jar file and spigot jar file in the same directory. Compile by running `javac -cp '*:.' *.java`. This will produce a `.class` file which can be loaded by SSX-Connector.
 
-The class should extend `Addon` (import `xyz.derkades.ssx_connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, BiFunction<UUID, String, String> placeholder)` methods to add placeholders.
+The class should extend `Addon` (import `nl.rslot.ssx.connector.Addon`). Implement the required methods. In the `onLoad` method, use the `addPlaceholder(String key, Supplier<String> placeholder)` and `addPlayerPlaceholder(String key, Function<UUID, String> placeholder)` methods to add placeholders.
 
 ### Example
 
 ```java
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
+import nl.rslot.ssx.connector.Addon;
+
 public class ExamplePlaceholders extends Addon {
 
     @Override
@@ -50,11 +54,14 @@ public class ExamplePlaceholders extends Addon {
         // Add {hello} placeholder that always returns "Hello!"
         addPlaceholder("hello", () -> "Hello!");
 
-        // Add {helloPlayer} placeholder returns a more personal greeting
-        addPlayerPlaceholder("helloPlayer", (uuid, name) -> "Hello, " + name + "!");
+        // Add {helloWhitelisted} that greets only whitelisted players
+        addPlayerPlaceholder("helloWhitelisted", uuid -> {
+            OfflinePlayer player = Bukkit.getOfflinePlayer(uuid);
+            return player != null && player.isWhitelisted() ? "Hello!" : "...";
+        });
 
         // Use message from configuration
-        addPlayerPlaceholder("helloConfig", (uuid, name) -> config.getString("message").replace("{name}", name));
+        addPlaceholder("helloConfig", () -> config.getString("message"));
     }
 
 }
@@ -62,12 +69,11 @@ public class ExamplePlaceholders extends Addon {
 
 ### Configuration
 
-If you need a config create a .yml file in the same directory and with the same name as the java file, for example `Hello.yml`. You'll be able to read the configuration file using the global `config` variable.
+If you need a config create a .yml file in the same directory and with the same name as the java file, for example `Hello.yml`. You'll be able to read the configuration file using the `config` class variable.
 For example:
 
 ```yaml
-# {name} will be replaced with the player name
-message: 'Bonjour, {name}!'
+message: 'Bonjour!'
 ```
 
 ### Good to know
